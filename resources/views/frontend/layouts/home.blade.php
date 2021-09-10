@@ -1,0 +1,10 @@
+@extends('frontend.layouts.frontend_app')
+@section('app-content')
+    @include('frontend.includes.slider')
+    @include('frontend.includes.about')
+    @include('frontend.includes.featured_post')
+    @include('frontend.includes.divider')
+    @include('frontend.includes.latest_post')
+    @include('frontend.includes.newslatter')
+    @include('frontend.includes.post_gallery')
+@endsection
