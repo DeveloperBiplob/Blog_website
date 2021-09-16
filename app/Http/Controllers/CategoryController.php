@@ -8,20 +8,26 @@ use Illuminate\Http\Request;
 
 class CategoryController extends Controller
 {
-    protected $category;
+    // protected $category;
 
-    public function __construct(CategoryInterface $category)
-    {
-        $this->category = $category;
-    }
+    // public function __construct(CategoryInterface $category)
+    // {
+    //     $this->category = $category;
+    // }
 
 
     public function index()
     {
         // $categories = Category::all();
-        $categories = $this->category->getAllCategory();
-        return view('backend.category.index', compact('categories'));
+        // $categories = $this->category->getAllCategory();
+        // return view('backend.category.index', compact('categories'));
+
+        return view('backend.category.index');
     }
 
+    public function fetchCategory()
+    {
+        return Category::get();
+    }
     
 }

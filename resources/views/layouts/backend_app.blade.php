@@ -68,5 +68,6 @@
 <script src="{{ asset('backend') }}/dist/js/demo.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.4/axios.min.js"></script>
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+@stack('script')
 </body>
 </html>
