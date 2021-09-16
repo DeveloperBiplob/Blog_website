@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Admin;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -14,5 +15,11 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         // \App\Models\Admin::factory(10)->create();
+
+        Admin::create([
+            'name' => 'Biplob',
+            'email' => 'biplob@gmial.com',
+            'password' => bcrypt('laravel'),
+        ]);
     }
 }
