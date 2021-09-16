@@ -18,8 +18,12 @@ class DatabaseSeeder extends Seeder
 
         Admin::create([
             'name' => 'Biplob',
-            'email' => 'biplob@gmial.com',
+            'email' => 'biplob@gmail.com',
             'password' => bcrypt('laravel'),
+        ]);
+
+        $this-> call([
+            CategorySeeder::class
         ]);
     }
 }
