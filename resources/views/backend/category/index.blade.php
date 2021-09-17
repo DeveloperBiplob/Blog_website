@@ -54,7 +54,36 @@
         </div>
        </div>
    </div>
+
+<!-- Modal -->
+<div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Edit Category</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <form action="" id="updateCategoryForm">
+                <div class="form-group">
+                    <label for="">Name</label>
+                    <input type="hidden" name="" id="edit_cat_slug">
+                    <input type="text" name="name" id="edit_name" class="form-control" placeholder="Enter New Category Name">
+                    <span class="text-danger" id="catEditError"></span>
+                </div>
+                <div class="form-group">
+                    <button class="btn btn-success btn-block">Update Category</button>
+                </div>
+            </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
 @endsection
+
 
 @push('script')
     <script>
@@ -75,7 +104,7 @@
                 rows += '<td>'+ ++i +'</td>';
                 rows += '<td>'+value.name+'</td>';
                 rows += '<td data-id="'+value.id+'" class="text-center">';
-                rows += '<a class="btn btn-sm btn-info text-light" id="editRow" data-id="'+value.id+'" data-toggle="modal" data-target="#editModal">Edit</a> ';
+                rows += '<a class="btn btn-sm btn-info text-light" id="editRow" data-id="'+value.slug+'" data-toggle="modal" data-target="#editModal">Edit</a> ';
                 rows += '<a class="btn btn-sm btn-danger text-light"  id="deleteRow" data-id="'+value.slug+'" >Delete</a> ';
                 rows += '</td>';
                 rows += '</tr>';
@@ -139,6 +168,61 @@
         })
 
 
+        // Edit
+        $('body').on('click', '#editRow', function (){
+            let slug = $(this).attr('data-id');
+            let base_url = window.location.origin;
+            let url = base_url + '/admin/category/' + slug;
+
+            // console.log(url);
+
+            let edit_name = $('#edit_name');
+            let edit_cat_slug = $('#edit_cat_slug');
+            let catEditError = $('#catEditError');
+
+            axios.get(url)
+            .then((res) => {
+                // let {data} = res; // ai vabe o use kora jay.
+                // console.log(data);
+
+                // Input Field e data show koranor jonno.
+                let data = res.data; 
+                edit_name.val(data.name)
+                edit_cat_slug.val(data.slug)
+            })
+            .catch((err) => {
+                console.log(err);
+            })
+
+        })
+
+        // Update
+        $('body').on('submit', '#updateCategoryForm', function(e){
+            e.preventDefault();
+
+            let slug = $('#edit_cat_slug').val();
+            let name = $('#edit_name').val();
+            let catEditError = $('#catEditError');
+            
+            let base_url = window.location.origin;
+            let url = base_url + '/admin/category/' + slug;
+
+            // console.log(url);
+
+            axios.put(url, {
+                name : name
+            })
+            .then((res) => {
+                $('#editModal').modal('toggle'); // data update howar por modal ta close kore dey.
+                getAllCategory();
+                notifaction('Data Update Successfully!');
+            })
+            .catch((err) => {           
+                if(err.response.data.errors.name){
+                    catEditError.text(err.response.data.errors.name[0]);
+                }
+            })
+        })
 
     </script>
 @endpush
