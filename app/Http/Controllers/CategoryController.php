@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\CategoryRequest;
 use App\Models\Category;
 use App\Repository\Category\CategoryInterface;
 use Illuminate\Http\Request;
@@ -30,4 +31,15 @@ class CategoryController extends Controller
         return Category::get();
     }
     
+    public function store(CategoryRequest $request)
+    {
+        // info($request->all());
+
+        $category = Category::create([
+            'name' => $request->name,
+            'slug' => $request->name
+        ]);
+
+        info($category);
+    }
 }

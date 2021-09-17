@@ -40,10 +40,11 @@
                 <h3>Add Category</h3>
             </div>
             <div class="card-body">
-                <form action="" >
+                <form action="" id="addCategoryForm">
                     <div class="form-group">
                         <label for="">Name</label>
                         <input type="text" name="name" id="name" class="form-control" placeholder="Enter a Category Name">
+                        <span class="text-danger" id="catError"></span>
                     </div>
                     <div class="form-group">
                         <button class="btn btn-success btn-block">Add Category</button>
@@ -81,6 +82,46 @@
             });
             $('#catTable').html(rows)
         }
+
+        // SweetAlear//
+        function notifaction(title = "Data Save Successffully!"){
+            Swal.fire({
+                icon: 'success',
+                title: 'Data Save!',
+                text: title,
+                })
+        }
+
+        // Store
+        $('body').on('submit', '#addCategoryForm', function(e){
+            e.preventDefault();
+            // console.log('Function is working')
+            let name = $('#name');
+            let catError = $('#catError');
+            // console.log(name.val());
+
+            catError.text('');
+            if(name.val() === ''){
+                catError.text('Input Field Must Be Not Empty!');
+                return null;
+            }
+            axios.post("{{ route('admin.category.store') }}", {
+                name : name.val()
+            })
+            .then((res) => {
+                getAllCategory();
+                name.val('');
+                notifaction('Data Save Successffully!');
+            })
+            .catch((err) => {
+                // console.log(err);
+
+                if(err.response.data.errors.name){
+                    catError.text(err.response.data.errors.name[0]);
+                }
+            })
+
+        })
 
     </script>
 @endpush
