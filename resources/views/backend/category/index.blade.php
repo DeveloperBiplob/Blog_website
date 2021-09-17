@@ -76,7 +76,7 @@
                 rows += '<td>'+value.name+'</td>';
                 rows += '<td data-id="'+value.id+'" class="text-center">';
                 rows += '<a class="btn btn-sm btn-info text-light" id="editRow" data-id="'+value.id+'" data-toggle="modal" data-target="#editModal">Edit</a> ';
-                rows += '<a class="btn btn-sm btn-danger text-light"  id="deleteRow" data-id="'+value.id+'" >Delete</a> ';
+                rows += '<a class="btn btn-sm btn-danger text-light"  id="deleteRow" data-id="'+value.slug+'" >Delete</a> ';
                 rows += '</td>';
                 rows += '</tr>';
             });
@@ -122,6 +122,23 @@
             })
 
         })
+
+        // Delete
+        $('body').on('click', '#deleteRow', function (){
+            let slug = $(this).attr('data-id');
+            let base_url = window.location.origin;
+            let url = base_url + '/admin/category/' + slug;
+
+            // console.log(url);
+
+            axios.delete(url)
+            .then((res) => {
+                getAllCategory();
+                notifaction('Data Delete Successfully');
+            })
+        })
+
+
 
     </script>
 @endpush

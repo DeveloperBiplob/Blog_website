@@ -16,6 +16,8 @@ class Category extends Model
         $this->attributes['slug'] = Str::slug($value);
     }
     
+    // By defaul id diye data delete update and store hoy.
+    // Jodi amara onno kono kicho use korte chai se somoy ai vabe [getRouteKeyName] function e key ta mention kore dite hobe.
     public function getRouteKeyName()
     {
         return 'slug';
