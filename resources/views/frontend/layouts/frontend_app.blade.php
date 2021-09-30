@@ -1,10 +1,13 @@
-
+@php
+    $website = App\Models\Website::first();
+    $latest_posts = App\Models\Post::latest()->limit(3)->get();
+@endphp
 <!DOCTYPE html>
 <html>
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Bootstrap Blog - B4 Template by Bootstrap Temple</title>
+        <title>{{ $website->title }}</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="robots" content="all,follow">
