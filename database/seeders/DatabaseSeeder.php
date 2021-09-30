@@ -2,8 +2,12 @@
 
 namespace Database\Seeders;
 
+use App\Models\Post;
 use App\Models\Admin;
+use App\Models\PostTag;
+use App\Models\SubCategory;
 use Illuminate\Database\Seeder;
+use Database\Seeders\CategorySeeder;
 
 class DatabaseSeeder extends Seeder
 {
@@ -14,16 +18,20 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // \App\Models\Admin::factory(10)->create();
-
         Admin::create([
-            'name' => 'Biplob',
-            'email' => 'biplob@gmail.com',
-            'password' => bcrypt('laravel'),
+            'name' => 'admin',
+            'email' => 'admin@mail.com',
+            'image' => 'storage/admin/default.png',
+            'password' => bcrypt('password')
         ]);
-
-        $this-> call([
-            CategorySeeder::class
+        // \App\Models\Admin::factory(10)->create();
+        $this->call([
+            CategorySeeder::class,
+            WebsiteSeeder::class,
+            TagSeeder::class
         ]);
+        SubCategory::factory(10)->create();
+        Post::factory(15)->create();
+        PostTag::factory(25)->create();
     }
 }

@@ -2,17 +2,17 @@
 
 namespace Database\Factories;
 
-use App\Models\SubCategory;
+use App\Models\PostTag;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class SubCategoryFactory extends Factory
+class PostTagFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
      *
      * @var string
      */
-    protected $model = SubCategory::class;
+    protected $model = PostTag::class;
 
     /**
      * Define the model's default state.
@@ -22,9 +22,8 @@ class SubCategoryFactory extends Factory
     public function definition()
     {
         return [
-            'name' => $this->faker->name,
-            'slug' => $this->faker->name,
-            'category_id' => rand(1, 3)
+            'post_id' => rand(1, 15),
+            'tag_id' => rand(1, 4)
         ];
     }
 }

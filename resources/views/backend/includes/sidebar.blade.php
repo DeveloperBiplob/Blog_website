@@ -23,7 +23,7 @@
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
-          <li class="nav-item has-treeview menu-open">
+          {{-- <li class="nav-item has-treeview menu-open">
             <a href="{{ route('dashboard') }}" class="nav-link active">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
@@ -31,7 +31,7 @@
                 <i class="right fas fa-angle-left"></i>
               </p>
             </a>
-            {{-- <ul class="nav nav-treeview">
+            <ul class="nav nav-treeview">
               <li class="nav-item">
                 <a href="{{ route('dashboard') }}" class="nav-link active">
                   <i class="far fa-circle nav-icon"></i>
@@ -50,8 +50,8 @@
                   <p>Dashboard v3</p>
                 </a>
               </li>
-            </ul> --}}
-          </li>
+            </ul>
+          </li> --}}
           <li class="nav-item">
             <a href="{{ route('admin.category.index') }}" class="nav-link">
               <i class="nav-icon fas fa-th"></i>
@@ -66,6 +66,51 @@
               <i class="nav-icon fas fa-th"></i>
               <p>
                 Sub Category
+                <span class="right badge badge-danger">New</span>
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="{{ route('admin.post.index') }}" class="nav-link">
+              <i class="nav-icon fas fa-th"></i>
+              <p>
+                Post
+                <span class="right badge badge-danger">New</span>
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="{{ route('admin.tag.index') }}" class="nav-link">
+              <i class="nav-icon fas fa-th"></i>
+              <p>
+                Tags
+                <span class="right badge badge-danger">New</span>
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="{{ route('admin.slider.index') }}" class="nav-link">
+              <i class="nav-icon fas fa-th"></i>
+              <p>
+                Slider
+                <span class="right badge badge-danger">New</span>
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="{{ route('admin.website.index') }}" class="nav-link">
+              <i class="nav-icon fas fa-th"></i>
+              <p>
+                Website Details
+                <span class="right badge badge-danger">New</span>
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a target="_blank" href="/" class="nav-link">
+              <i class="nav-icon fas fa-th"></i>
+              <p>
+                Website View
                 <span class="right badge badge-danger">New</span>
               </p>
             </a>
