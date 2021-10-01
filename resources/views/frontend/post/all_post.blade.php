@@ -9,12 +9,12 @@
               <!-- post -->
             @foreach($posts as $post)
             <div class="post col-xl-6">
-                <div class="post-thumbnail"><a href="post.html"><img src="{{ asset($post->image) }}" alt="..." class="img-fluid"></a></div>
+                <div class="post-thumbnail"><a href="{{ route('single-post', $post->slug) }}"><img src="{{ asset($post->image) }}" alt="..." class="img-fluid"></a></div>
                 <div class="post-details">
                   <div class="post-meta d-flex justify-content-between">
                     <div class="date meta-last">{{ $post->created_at->format('d M | Y') }}</div>
-                    <div class="category"><a href="#">{{ $post->category->name }}</a></div>
-                  </div><a href="post.html">
+                    <div class="category"><a href="{{ route('category-post', $post->category->slug) }}">{{ $post->category->name }}</a></div>
+                  </div><a href="{{ route('single-post', $post->slug) }}">
                     <h3 class="h4">{{ $post->name }}</h3></a>
                   <p class="text-muted">{{ $post->short_des }}</p>
                   <footer class="post-footer d-flex align-items-center"><a href="#" class="author d-flex align-items-center flex-wrap">
@@ -53,6 +53,7 @@
             </form>
           </div>
           {{-- {{ $categories->count() }} --}}
+          <!-- Component e Variable er maje Underscore Support kore na. Camel Case use korte hoy -->
           <x-Pertial.widget-component :latestPosts="$latestPosts" :categories="$categories" :tags="$tags" />
         </aside>
       </div>

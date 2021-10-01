@@ -36,7 +36,7 @@
             <div class="col-md-4">
                 <div class="latest-posts">
                     @foreach($latest_posts as $post)
-                    <a href="" class="d-block my-3">
+                    <a href="{{ route('single-post', $post->slug) }}" class="d-block my-3">
                         <div class="post d-flex align-items-center">
                             <div class="image"><img src="{{ asset($post->image) }}" alt="" class="img-fluid"></div>
                             <div class="title"><strong>{{ $post->name }}</strong><span class="date last-meta">{{ $post->created_at->format('M d, Y') }}</span></div>

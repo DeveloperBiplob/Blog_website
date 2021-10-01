@@ -9,6 +9,13 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 
 Route::get('/all-post', [PostController::class, 'allPost'])->name('all-post');
 
+Route::get('/post/{slug}', [PostController::class, 'singlePost'])->name('single-post');
+
+Route::get('/post/category/{slug}', [PostController::class, 'categoryWisePost'])->name('category-post');
+
+Route::get('/post/tag/{slug}', [PostController::class, 'tagWisePost'])->name('tag-post');
+
+
 
 
 Route::get('/admin/dashboard', function () {

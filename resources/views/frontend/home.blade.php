@@ -37,8 +37,8 @@
                         <div class="text-inner d-flex align-items-center">
                             <div class="content">
                                 <header class="post-header">
-                                    <div class="category"><a href="#">{{ $post->category->name }}</a><a href="#">{{ $post->sub_category->name }}</a></div><a href="post.html">
-                                    <h2 class="h4">{{ $post->title }}</h2></a>
+                                    <div class="category"><a href="">{{ $post->category->name }}</a><a href="">{{ $post->sub_category->name }}</a></div><a href="{{ route('single-post', $post->slug) }}">
+                                    <h2 class="h4">{{ $post->name }}</h2></a>
                                 </header>
                                 <p>{{ $post->short_des }}</p>
                                 <footer class="post-footer d-flex align-items-center"><a href="#" class="author d-flex align-items-center flex-wrap">
@@ -82,8 +82,8 @@
                     <div class="post-details">
                         <div class="post-meta d-flex justify-content-between">
                             <div class="date">{{ $post->created_at->format('d M | Y') }}</div>
-                            <div class="category"><a href="#">{{ $post->category->name }}</a></div>
-                        </div><a href="post.html">
+                            <div class="category"><a href="{{ route('category-post', $post->category->slug) }}">{{ $post->category->name }}</a></div>
+                        </div><a href="{{ route('single-post', $post->slug) }}">
                         <h3 class="h4">{{ $post->name }}</h3></a>
                         <p class="text-muted">{{ $post->short_des }}</p>
                     </div>

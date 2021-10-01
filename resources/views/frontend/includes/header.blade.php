@@ -20,7 +20,10 @@
             <!-- Navbar Brand -->
             <div class="navbar-header d-flex align-items-center justify-content-between">
                 @if ($website->logo)
-               <!-- Navbar Logo --><a href="{{ route('home') }}" ><img width="50px" src="{{ asset($website->logo) }}" alt="{{ $website->title }}"></a>
+               <!-- Navbar Logo -->
+                <a href="{{ route('home') }}" class="d-block" style="width:250px">
+                    <img width="100%" src="{{ asset($website->logo) }}" alt="{{ $website->title }}">
+                </a>
                 @else
                 <!-- Navbar Brand --><a href="{{ route('home') }}" class="navbar-brand">{{ $website->title }}</a>     
                 @endif
@@ -34,7 +37,6 @@
                     </li>
                     <li class="nav-item"><a href="{{ route('all-post') }}" class="nav-link ">Blog</a>
                     </li>
-                    <li class="nav-item"><a href="" class="nav-link ">Post</a>
                     </li>
                     <li class="nav-item"><a href="" class="nav-link ">Contact</a>
                     </li>
