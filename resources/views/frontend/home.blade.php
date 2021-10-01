@@ -3,7 +3,7 @@
     <!-- Hero Section-->
     <div class="owl-carousel hero_slider">
         @foreach($sliders as $slider)
-        <section style="background: url({{ asset($slider->image) }}); background-size: cover; background-position: center center; height:80vh" class="hero wow animate__animated animate__fadeInTopLeft">
+        <section style="background: url({{ asset($slider->image) }}); background-size: cover; background-position: center center; height:70vh" class="hero wow animate__animated animate__fadeInTopLeft">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-7">

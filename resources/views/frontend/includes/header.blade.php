@@ -1,4 +1,4 @@
-<header class="header">
+<header class="header" style="margin-bottom: 90px">
     <!-- Main Navbar-->
     <nav class="navbar navbar-expand-lg fixed-top">
         <div class="search-area">
@@ -20,7 +20,7 @@
             <!-- Navbar Brand -->
             <div class="navbar-header d-flex align-items-center justify-content-between">
                 @if ($website->logo)
-               <!-- Navbar Logo --><a href="{{ route('home') }}" ><img width="80px" src="{{ asset($website->logo) }}" alt="{{ $website->title }}"></a>
+               <!-- Navbar Logo --><a href="{{ route('home') }}" ><img width="50px" src="{{ asset($website->logo) }}" alt="{{ $website->title }}"></a>
                 @else
                 <!-- Navbar Brand --><a href="{{ route('home') }}" class="navbar-brand">{{ $website->title }}</a>     
                 @endif
@@ -30,9 +30,9 @@
             <!-- Navbar Menu -->
             <div id="navbarcollapse" class="collapse navbar-collapse">
                 <ul class="navbar-nav ml-auto">
-                    <li class="nav-item"><a href="" class="nav-link active ">Home</a>
+                    <li class="nav-item"><a href="{{ route('home') }}" class="nav-link active ">Home</a>
                     </li>
-                    <li class="nav-item"><a href="" class="nav-link ">Blog</a>
+                    <li class="nav-item"><a href="{{ route('all-post') }}" class="nav-link ">Blog</a>
                     </li>
                     <li class="nav-item"><a href="" class="nav-link ">Post</a>
                     </li>
