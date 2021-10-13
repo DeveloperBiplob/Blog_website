@@ -20,6 +20,6 @@ Route::get('/post/tag/{slug}', [PostController::class, 'tagWisePost'])->name('ta
 
 Route::get('/admin/dashboard', function () {
     return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
+})->middleware(['auth:web'])->name('dashboard');
 
 require __DIR__.'/admin_auth.php';

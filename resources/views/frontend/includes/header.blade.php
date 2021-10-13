@@ -1,4 +1,4 @@
-<header class="header" style="margin-bottom: 90px">
+<header class="header" style="margin-bottom: 105px">
     <!-- Main Navbar-->
     <nav class="navbar navbar-expand-lg fixed-top">
         <div class="search-area">
@@ -42,7 +42,21 @@
                     </li>
                 </ul>
                 <div class="navbar-text"><a href="#" class="search-btn"><i class="icon-search-1"></i></a></div>
-                <ul class="langs navbar-text"><a href="#" class="active">Login</a><span>           </span><a href="#">Register</a></ul>
+                
+                @guest('user')
+                    <ul class="langs navbar-text"><a href="{{ route('login') }}" class="active">Login</a><span>           </span><a href="{{ route('register') }}">Register</a></ul>
+                @endguest
+
+                @auth('user')
+                <ul class="navbar-nav ml-3" >
+                    <li class="nav-item">
+                    <form action="{{ route('logout') }}" method="POST">
+                        @csrf
+                        <button style="margin-top: 10px" class="btn btn-primary btn-sm" onclick=" return confirm('Are you to logout this Dashboard!')">Logout</button>
+                    </form>
+                    </li>
+                </ul>
+                @endauth
             </div>
         </div>
     </nav>

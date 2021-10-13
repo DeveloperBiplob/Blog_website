@@ -48,6 +48,9 @@
         <script src="{{ asset('frontend') }}/js/owl.carousel.min.js"></script>
         <script src="{{ asset('frontend') }}/js/wow.min.js"></script>
         <script src="{{ asset('frontend') }}/js/front.js"></script>
+        <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.4/axios.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"> </script>
         <script src="{{ asset('frontend') }}/js/custom.js"></script>
     </body>
 </html>

@@ -1,10 +1,10 @@
 @extends('layouts.backend_app')
-@section('title', 'User Login')
+@section('title', 'Admin Login')
 @section('app-content')
     <div class="register-page" style="min-height: 586.391px;">
     <div class="login-box">
         <div class="login-logo">
-        <a href="../../index2.html"><b>User Login</a>
+        <a href="../../index2.html"><b>Admin Login</a>
         </div>
         <!-- /.login-logo -->
         <div class="card">
