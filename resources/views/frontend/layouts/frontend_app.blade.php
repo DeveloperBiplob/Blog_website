@@ -28,6 +28,9 @@
         <link rel="stylesheet" href="{{ asset('frontend') }}/css/style.default.css" id="theme-stylesheet">
         <!-- Custom stylesheet - for your changes-->
         <link rel="stylesheet" href="{{ asset('frontend') }}/css/custom.css">
+        <!-- Toastr Notification-->
+        {{-- <link rel="stylesheet" href="{{ asset('plugins') }}/toaster.css"> --}}
+        <link rel="stylesheet" href="http://cdn.bootcss.com/toastr.js/latest/css/toastr.min.css">
         <!-- Favicon-->
         <link rel="shortcut icon" href="{{ asset('frontend') }}/favicon.png">
 
@@ -51,6 +54,17 @@
         <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.4/axios.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"> </script>
+        <!-- Toastr Notification-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"> </script>
+        <script>
+            @if (Session::has('success'))
+            toastr.success("{{ Session::get('success') }}", 'Success!')
+            @elseif(Session::has('warning'))
+                toastr.warning("{{ Session::get('warning') }}", 'Warning!')
+            @elseif(Session::has('error'))
+                toastr.error("{{ Session::get('error') }}", 'Error!')
+            @endif
+        </script>
         <script src="{{ asset('frontend') }}/js/custom.js"></script>
     </body>
 </html>
