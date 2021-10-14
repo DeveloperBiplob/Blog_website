@@ -11,14 +11,14 @@
               <div class="post-meta d-flex justify-content-between">
                 <div class="category"><a href="#">{{ $post->category->name }}</a><a href="#">{{ $post->sub_category->name }}</a></div>
               </div>
-              <h1>{{ $post->name }}<a href="#"><i class="fa fa-bookmark-o"></i></a></h1>
+              <h1>{{ $post->name }}<a href="{{ route('bookmark', $post->slug) }}"><i class="fa fa-bookmark-o"></i></a></h1>
               <div class="post-footer d-flex align-items-center flex-column flex-sm-row"><a href="#" class="author d-flex align-items-center flex-wrap">
                   <div class="avatar"><img src="{{ asset($post->author->image) }}" alt="..." class="img-fluid"></div>
                   <div class="title"><span>{{ $post->author->name }}</span></div></a>
                 <div class="d-flex align-items-center flex-wrap">       
                   <div class="date"><i class="icon-clock"></i>{{ $post->created_at->diffForHumans() }}</div>
                   <div class="views"><i class="icon-eye"></i>{{ $post->view }}</div>
-                  <div class="comments meta-last"><i class="icon-comment"></i>12</div>
+                  <div class="comments meta-last"><i class="icon-comment"></i>{{ $post->comments->count() }}</div>
                 </div>
               </div>
               <div class="post-body">

@@ -5,8 +5,8 @@
         <div class="col-md-4 mt-3">
             <ul class="list-group">
                 <li class="list-group-item active"><a href="" class="text-light">Dashboard</a></li>
-                <li class="list-group-item "><a href="" class="text-dark">Brookmarks</a></li>
-                <li class="list-group-item "><a href="" class="text-dark">Coments</a></li>
+                <li class="list-group-item "><a href="{{ route('show-bookmarks') }}" class="text-dark">Brookmarks</a></li>
+                <li class="list-group-item "><a href="{{ route('user-all-comments') }}" class="text-dark">Coments</a></li>
                 <li class="list-group-item "><a href="" class="text-dark">Profile</a></li>
                 <li class="list-group-item "><a href="" class="text-dark">Setting</a></li>
               </ul>

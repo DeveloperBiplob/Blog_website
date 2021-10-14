@@ -11,7 +11,7 @@
             <div class="title"><strong>{{ $post->name }}</strong>
                 <div class="d-flex align-items-center">
                     <div class="views"><i class="icon-eye"></i>{{ $post->view }}</div>
-                    <div class="comments"><i class="icon-comment"></i>12</div>
+                    <div class="comments"><i class="icon-comment"></i>{{ $post->comments->count() }}</div>
                 </div>
             </div>
         </div>

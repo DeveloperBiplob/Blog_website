@@ -31,6 +31,8 @@
         <!-- Toastr Notification-->
         {{-- <link rel="stylesheet" href="{{ asset('plugins') }}/toaster.css"> --}}
         <link rel="stylesheet" href="http://cdn.bootcss.com/toastr.js/latest/css/toastr.min.css">
+        <!-- Bootstrap Datatabel-->
+        <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.3/css/dataTables.bootstrap4.min.css">
         <!-- Favicon-->
         <link rel="shortcut icon" href="{{ asset('frontend') }}/favicon.png">
 
@@ -54,6 +56,15 @@
         <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.4/axios.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"> </script>
+        <!-- Bootstrap datatable-->
+        <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
+        <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.3/js/dataTables.bootstrap4.min.js"></script>
+
+        <script>
+            $(document).ready( function () {
+                $('#myTable').DataTable();
+            } );
+            </script>
         <!-- Toastr Notification-->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"> </script>
         <script>

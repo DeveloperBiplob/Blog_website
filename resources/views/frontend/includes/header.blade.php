@@ -50,6 +50,9 @@
                 @auth('user')
                 <ul class="navbar-nav ml-3" >
                     <li class="nav-item">
+                        <a style="margin-top: 10px" href="{{ route('user-dashboard') }}" class="btn btn-sm btn-primary mx-2">Dashboard</a>
+                    </li>
+                    <li class="nav-item">
                     <form action="{{ route('logout') }}" method="POST">
                         @csrf
                         <button style="margin-top: 10px" class="btn btn-primary btn-sm" onclick=" return confirm('Are you to logout this Dashboard!')">Logout</button>

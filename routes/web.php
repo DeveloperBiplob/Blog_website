@@ -3,6 +3,7 @@
 use App\Http\Controllers\Frontend\DashboardController;
 use App\Http\Controllers\Frontend\HomeController;
 use App\Http\Controllers\Frontend\PostController;
+use App\Http\Controllers\Frontend\UserController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -20,10 +21,19 @@ Route::get('/post/tag/{slug}', [PostController::class, 'tagWisePost'])->name('ta
 Route::middleware(['auth:user'])->group(function () {
 
     Route::get('/dashboard', [DashboardController::class, 'index'])
-                ->name('dashboard');
+                ->name('user-dashboard');
 
     Route::post('post-comments/{post}', [PostController::class, 'storePostComment'])
                 ->name('post-comments');
+
+    Route::get('/user-comments', [UserController::class, 'userPostComments'])
+                ->name('user-all-comments');
+
+    Route::get('bookmark-post/{post}', [UserController::class, 'bookmarkPosts'])
+                ->name('bookmark');
+
+    Route::get('show-bookmarks', [UserController::class, 'showBookmarks'])
+                ->name('show-bookmarks');
 
 });
 
