@@ -30,4 +30,31 @@ return [
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
 
+
+    // Socialite Use in social Login---//
+    // Installation
+    // composer require laravel/socialite
+
+    // Protome service.php te service ta ke define kore nite hobe
+
+    // Next service(github, facebook) er developer mode e giye OAuth Application create korte hobe.
+    // Seta akta clint id and akta clint secret dibe jei gulo .env te define kore dite hobe.
+
+    // Next controller create korbo.
+
+    // Next Notification / Mail create korbo.
+    // User ke Mail korar jono.
+
+    'github' => [
+        'client_id' => env('GITHUB_CLIENT_ID'),
+        'client_secret' => env('GITHUB_CLIENT_SECRET'),
+        'redirect' => 'http://127.0.0.1:8000/auth/github/callback',
+    ],
+
+    'google' => [
+        'client_id' => env('GOOGLE_CLIENT_ID'),
+        'client_secret' => env('GOOGLE_CLIENT_SECRET'),
+        'redirect' => 'http://127.0.0.1:8000/auth/google/callback',
+    ],
+
 ];

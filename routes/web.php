@@ -3,7 +3,10 @@
 use App\Http\Controllers\Frontend\DashboardController;
 use App\Http\Controllers\Frontend\HomeController;
 use App\Http\Controllers\Frontend\PostController;
+use App\Http\Controllers\Frontend\SocialLoginController;
 use App\Http\Controllers\Frontend\UserController;
+use App\Mail\SocialNewUserMail;
+use App\Models\User;
 use Illuminate\Support\Facades\Route;
 
 
@@ -45,3 +48,17 @@ Route::get('/admin/dashboard', function () {
 })->middleware(['auth:web'])->name('dashboard');
 
 require __DIR__.'/admin_auth.php';
+
+
+
+// Social Login
+
+Route::get('/auth/redirect/{provider}', [SocialLoginController::class, 'login'])->name('social-login');
+
+Route::get('/auth/{provider}/callback/', [SocialLoginController::class, 'callback'])->name('social-callback');
+
+// Test Mail template-------//
+// Route::get('mial-test', function () {
+//     $user = User::first();
+//     return new SocialNewUserMail($user);
+// });
