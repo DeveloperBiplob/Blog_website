@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
+use App\Mail\SendFormSubscriberEmial;
 use App\Models\Category;
 use App\Models\Post;
 use App\Models\PostComment;
@@ -10,6 +11,7 @@ use App\Models\Subscriber;
 use App\Models\Tag;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 
 class PostController extends Controller
 {
@@ -113,8 +115,12 @@ class PostController extends Controller
             'email' => ['required', 'email', 'unique:subscribers,email']
         ]);
 
-        Subscriber::create([
+        $subscriber = Subscriber::create([
             'email' => $request->email
         ]);
+
+        if($subscriber){
+            Mail::to($subscriber->email)->send(new SendFormSubscriberEmial($subscriber));
+        }
     }
 }

@@ -158,6 +158,7 @@
                     email : email.value
                     });
                     notificatin.innerHTML = 'Thanks For Subscribe our blog!';
+                    email.value = ''
                 }catch(err){
                     if(err.response.data.errors.email){
                         notificatin.innerHTML = err.response.data.errors.email[0]
