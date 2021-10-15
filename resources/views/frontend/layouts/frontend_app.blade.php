@@ -76,6 +76,7 @@
                 toastr.error("{{ Session::get('error') }}", 'Error!')
             @endif
         </script>
+        @stack('script')
         <script src="{{ asset('frontend') }}/js/custom.js"></script>
     </body>
 </html>

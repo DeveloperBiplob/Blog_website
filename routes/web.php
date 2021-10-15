@@ -62,3 +62,7 @@ Route::get('/auth/{provider}/callback/', [SocialLoginController::class, 'callbac
 //     $user = User::first();
 //     return new SocialNewUserMail($user);
 // });
+
+
+// Dynamic Search
+Route::get('/search-post/{query}', [PostController::class, 'searchPost'])->name('search-post');

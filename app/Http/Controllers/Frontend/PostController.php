@@ -96,4 +96,12 @@ class PostController extends Controller
             return false;
         }
     }
+
+
+    // Search Post
+    public function searchPost($query)
+    {
+        // info($query);
+        return Post::withOnly('author')->where('name', 'like', "%$query%")->get(['name', 'slug', 'author_id']);
+    }
 }
