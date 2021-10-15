@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Category;
 use App\Models\Post;
 use App\Models\PostComment;
+use App\Models\Subscriber;
 use App\Models\Tag;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -103,5 +104,17 @@ class PostController extends Controller
     {
         // info($query);
         return Post::withOnly('author')->where('name', 'like', "%$query%")->get(['name', 'slug', 'author_id']);
+    }
+
+    // subscriber
+    public function subscriber(Request $request)
+    {
+        $request->validate([
+            'email' => ['required', 'email', 'unique:subscribers,email']
+        ]);
+
+        Subscriber::create([
+            'email' => $request->email
+        ]);
     }
 }

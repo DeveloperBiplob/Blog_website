@@ -102,11 +102,16 @@
                 </div>
                 <div class="col-md-8">
                     <div class="form-holder">
-                        <form action="#">
+                        <form action="#" id="subscriberForm">
+                            @csrf
                             <div class="form-group">
                                 <input type="email" name="email" id="email" placeholder="Type your email address">
                                 <button type="submit" class="submit">Subscribe</button>
                             </div>
+                            @error('email')
+                            <span class="text-danger">{{ $message }}</span>
+                            @enderror
+                            <span id="notificatin" class="text-danger"></span>
                         </form>
                     </div>
                 </div>
@@ -135,3 +140,32 @@
         </div>
     </section>
 @endsection
+
+@push('script')
+    <script>
+        const select = (el) => document.querySelector(el);
+        let subscriberForm = select('#subscriberForm');
+        let email = select('#email');
+        let notificatin = select('#notificatin');
+        let url = `${window.location.origin}/subscriber`;
+
+        subscriberForm.addEventListener('submit', async function(e){
+            e.preventDefault();
+            // console.log(email.value)
+            if(email.value){
+                try{
+                    const response = await axios.post(url,{
+                    email : email.value
+                    });
+                    notificatin.innerHTML = 'Thanks For Subscribe our blog!';
+                }catch(err){
+                    if(err.response.data.errors.email){
+                        notificatin.innerHTML = err.response.data.errors.email[0]
+                    }
+                }
+            }else{
+                notificatin.innerHTML = 'Please Enter a Valid Email Address!'
+            }
+        })
+    </script>
+@endpush
