@@ -11,7 +11,8 @@
       <!-- Sidebar user panel (optional) -->
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
         <div class="image">
-          <img src="{{ asset('backend') }}/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+          {{-- <img src="{{ asset('backend') }}/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image"> --}}
+          <img style="height: 2.1rem !important" src="{{ asset(Auth::user()->image) }}" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
           <a href="#" class="d-block">{{ Auth::user()->name ?? 'Default Name' }}</a>
@@ -93,6 +94,15 @@
               <i class="nav-icon fas fa-th"></i>
               <p>
                 Slider
+                <span class="right badge badge-danger">New</span>
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="{{ route('admin.admin.index') }}" class="nav-link">
+              <i class="nav-icon fas fa-th"></i>
+              <p>
+                Roles Manage 
                 <span class="right badge badge-danger">New</span>
               </p>
             </a>

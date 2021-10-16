@@ -17,6 +17,9 @@ class CreateAdminsTable extends Migration
             $table->id();
             $table->string('name');
             $table->string('image');
+            $table->string('phone')->nullable();
+            $table->enum('role', ['admin', 'editor', 'moderator'])->default('admin');
+            $table->string('status')->nullable();
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');

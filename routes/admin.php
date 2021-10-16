@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\SliderController;
@@ -28,5 +29,9 @@ Route::prefix('admin')->name('admin.')->group(function () {
     Route::resource('tag', TagController::class);
     Route::resource('slider', SliderController::class);
     Route::resource('website', WebsiteController::class);
+    Route::resource('admin', AdminController::class);
+
+    // Role status Active and INactive
+    Route::get('role-action/{admin}', [AdminController::class, 'roleAction'])->name('role-action');
 });
 
