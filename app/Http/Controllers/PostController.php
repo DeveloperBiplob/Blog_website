@@ -97,6 +97,7 @@ class PostController extends Controller
      */
     public function edit(post $post)
     {
+        $this->authorize('update', $post);
         $categories = Category::latest()->get();
         $tags = Tag::latest()->get();
         $postTags = $this->getIDByFunction($post->tags);
@@ -151,6 +152,7 @@ class PostController extends Controller
      */
     public function destroy(post $post)
     {
+        $this->authorize('delete', Post::class);
         // return  $tags  = DB::table('post_tag')->where('post_id', $post->id)->get('id');
         $tags = $this->getIDByFunction($post->tags);
         File::deleteFile($post->image);
