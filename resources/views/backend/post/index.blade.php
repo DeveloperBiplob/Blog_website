@@ -36,8 +36,12 @@
                         <td>{{ $post->view }}</td>
                         <td>{{ $post->status == 1 ? 'Active' : 'Inactive' }}</td>
                         <td>
-                            <a href="" id="status" class="btn btn-sm btn-success"><i class="fa fa-arrow-up"></i></a>
-                            <a href="" class="btn btn-sm btn-warning"><i class="fa fa-arrow-down"></i></a>
+                            @if($post->status == 1)
+                            <a href="{{ route('status-action', $post->slug) }}" class="btn btn-sm btn-success"><i class="fa fa-arrow-up"></i></a>
+                            @else
+                            <a href="{{ route('status-action', $post->slug) }}" class="btn btn-sm btn-warning"><i class="fa fa-arrow-down"></i></a> 
+                            @endif
+
                             <a href="{{ route('admin.post.show',$post->slug) }}" class="btn btn-sm btn-success"><i class="fa fa-eye"></i></a>
                             <a href="{{ route('admin.post.edit', $post->slug) }}" class="btn btn-sm btn-info"><i class="fa fa-edit"></i></a>
 

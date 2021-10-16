@@ -70,3 +70,7 @@ Route::get('/search-post/{query}', [PostController::class, 'searchPost'])->name(
 
 // Subscribers
 Route::post('/subscriber', [PostController::class, 'subscriber'])->name('subscriber');
+
+
+// Post Status Active and Inactive
+Route::get('status-action/{post}', [PostController::class, 'postStatusAction'])->name('status-action');

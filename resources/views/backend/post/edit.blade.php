@@ -1,4 +1,8 @@
-
+<style>
+    .note-editable.card-block {
+        height: 300px;
+    }
+</style>
 @extends('layouts.backend_master')
 @section('title', 'Update Post')
 @push('css')

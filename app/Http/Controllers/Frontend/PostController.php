@@ -123,4 +123,22 @@ class PostController extends Controller
             Mail::to($subscriber->email)->send(new SendFormSubscriberEmial($subscriber));
         }
     }
+
+    // Post Status Active and Inactive
+    public function postStatusAction(Post $post)
+    {
+        $status = $post->status;
+        if($status == 0){
+            $post->update([
+                'status' => 1
+            ]);
+            $this->notification('Post Status is Active');
+        }else{
+            $post->update([
+                'status' => 0
+            ]);
+            $this->notification('Post Status is Inactive');
+        }
+        return back();
+    }
 }
