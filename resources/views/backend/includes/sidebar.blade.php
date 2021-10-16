@@ -98,6 +98,7 @@
               </p>
             </a>
           </li>
+          @can('isAdmin', Admin::class)
           <li class="nav-item">
             <a href="{{ route('admin.admin.index') }}" class="nav-link">
               <i class="nav-icon fas fa-th"></i>
@@ -107,6 +108,8 @@
               </p>
             </a>
           </li>
+          @endcan
+          @canany(['isAdmin', 'isEditor', 'isModerator'], Admin::class)
           <li class="nav-item">
             <a href="{{ route('admin.website.index') }}" class="nav-link">
               <i class="nav-icon fas fa-th"></i>
@@ -116,6 +119,7 @@
               </p>
             </a>
           </li>
+          @endcanany
           <li class="nav-item">
             <a target="_blank" href="/" class="nav-link">
               <i class="nav-icon fas fa-th"></i>

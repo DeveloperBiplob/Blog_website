@@ -29,7 +29,7 @@ Route::prefix('admin')->name('admin.')->group(function () {
     Route::resource('tag', TagController::class);
     Route::resource('slider', SliderController::class);
     Route::resource('website', WebsiteController::class);
-    Route::resource('admin', AdminController::class);
+    Route::resource('admin', AdminController::class)->middleware('can:isAdmin');
 
     // Role status Active and INactive
     Route::get('role-action/{admin}', [AdminController::class, 'roleAction'])->name('role-action');

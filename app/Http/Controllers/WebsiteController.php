@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Actions\File;
 use App\Http\Controllers\Controller;
 use App\Models\Website;
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Http\Request;
 
 class WebsiteController extends Controller
@@ -60,7 +61,11 @@ class WebsiteController extends Controller
      */
     public function edit(Website $website)
     {
-        return view('backend.website.edit', compact('website'));
+        if(Gate::allows('isAdmin') || Gate::allows('isEditor')){
+            return view('backend.website.edit', compact('website'));
+        }else{
+            abort(403, 'Unauthorizied!');
+        }
     }
 
     /**
