@@ -12,6 +12,7 @@ use Illuminate\Support\Auth;
 use App\Http\Requests\PostRequest;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
+use App\Services\Post\PostSubscriberMail;
 use Illuminate\Support\Facades\Auth as FacadesAuth;
 use Illuminate\Support\Facades\Storage;
 
@@ -65,6 +66,9 @@ class PostController extends Controller
         $post =  Post::create($data);
         if ($post) {
             $post->tags()->sync($request->tags);
+            // Send Mail to Subscribers
+            PostSubscriberMail::handle($post);
+
             $this->notification();
             return redirect()->route('admin.post.index');
         } else {
