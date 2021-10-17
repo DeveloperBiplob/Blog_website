@@ -1,8 +1,18 @@
-
+<style>
+    div#postTable_paginate {
+        display: inline-block;
+        float: right;
+    }
+    div#postTable_filter {
+        display: inline-block;
+        float: right;
+    }
+</style>
 @extends('layouts.backend_master')
 @section('title', 'Post')
 @push('css')
-<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.css">
+<!-- Bootstrap Datatabel-->
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.3/css/dataTables.bootstrap4.min.css">
 @endpush
 @section('master-content')
 <div class="card">
@@ -64,7 +74,9 @@
 @endsection
 
 @push('script')
-<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.js"></script>
+<!-- Bootstrap datatable-->
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.3/js/dataTables.bootstrap4.min.js"></script>
 @endpush
 @push('script')
 <script>

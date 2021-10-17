@@ -18,7 +18,7 @@ class PostController extends Controller
     public function allPost()
     {
         $data = [];
-        $data['posts'] = Post::with('author', 'category', 'sub_category')->latest()->paginate(6);
+        $data['posts'] = Post::whereStatus(1)->with('author', 'category', 'sub_category')->latest()->paginate(6);
         $data['categories'] = Category::with('posts')->get();
         $data['latestPosts'] = Post::with('category')->latest()->take(3)->get();
         $data['tags'] = Tag::get();
@@ -38,7 +38,7 @@ class PostController extends Controller
 
     public function categoryWisePost(Category $slug)
     {
-        $categoyWisePosts = $slug->posts;
+        $categoyWisePosts = $slug->posts()->paginate(6);
 
         $data = [];
         $data['posts'] = $categoyWisePosts;
@@ -50,7 +50,7 @@ class PostController extends Controller
 
     public function tagWisePost(Tag $slug)
     {
-        $tagWisePosts = $slug->posts;
+        $tagWisePosts = $slug->posts()->paginate(6);
 
         $data = [];
         $data['posts'] = $tagWisePosts;

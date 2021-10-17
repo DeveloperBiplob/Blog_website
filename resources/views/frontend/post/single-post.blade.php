@@ -22,7 +22,7 @@
                 </div>
               </div>
               <div class="post-body">
-                <p class="lead">{{ $post->long_des }}</p>
+                <p class="lead">{!! $post->long_des !!}</p>
               </div>
                 <div class="post-tags">
                   @foreach($post->tags as $tag)

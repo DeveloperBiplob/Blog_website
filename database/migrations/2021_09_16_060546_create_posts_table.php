@@ -21,8 +21,8 @@ class CreatePostsTable extends Migration
             $table->string('name', 100);
             $table->string('slug', 100);
             $table->boolean('status')->default(true);
-            $table->string('short_des');
-            $table->text('long_des');
+            $table->mediumText('short_des');
+            $table->longText('long_des');
             $table->double('view')->default(0);
             $table->string('image')->nullable();
             $table->timestamps();
